@@ -1,0 +1,101 @@
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+        <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ru.netology</groupId>
+    <artifactId>jd.homework.1.4.1.Marven.MultiModules</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>api</module>
+        <module>service</module>
+        <module>db</module>
+    </modules>
+
+    <packaging>pom</packaging>
+
+    <name>jd.homework.1.4.1.Marven.MultiModules</name>
+
+    <url>http://www.netology.ru</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <jv>5.7.1</jv>
+        <build.number>20032021</build.number>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${jv}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${jv}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+        <outputDirectory>target/classes</outputDirectory>
+        <finalName>App-${project.version}</finalName>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+        </resources>
+        <!--    Дополнительно по плагинам на практике -->
+
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <artifactId>maven-jar-plugin</artifactId>-->
+<!--                <version>3.1.2</version>-->
+<!--                &lt;!&ndash;          Пример по изменению файла манифеста &ndash;&gt;-->
+<!--                <configuration>-->
+<!--                    <archive>-->
+<!--                        <manifest>-->
+<!--                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>-->
+<!--                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>-->
+<!--                        </manifest>-->
+<!--                        <manifestEntries>-->
+<!--                            <Implementation-Version>${implementation.version}</Implementation-Version>-->
+<!--                            <Build-Number>${build.number}</Build-Number>-->
+<!--                        </manifestEntries>-->
+<!--                    </archive>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.gmaven</groupId>-->
+<!--                <artifactId>groovy-maven-plugin</artifactId>-->
+<!--                <version>2.1</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>validate</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>execute</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <source>-->
+<!--                                project.properties.setProperty('implementation.version', "${project.version}".replace('SNAPSHOT', "${build.number}"))-->
+<!--                            </source>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+    </build>
+
+</project>
